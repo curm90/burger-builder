@@ -21,11 +21,15 @@ const controls = [
   },
 ];
 
-const BuildControls = () => {
+const BuildControls = (props) => {
   return (
     <div className={styles.BuildControls}>
       {controls.map((control) => (
-        <BuildControl key={control.label} label={control.label} />
+        <BuildControl
+          key={control.label}
+          label={control.label}
+          added={() => props.addIngredientHandler(control.type)}
+        />
       ))}
     </div>
   );
